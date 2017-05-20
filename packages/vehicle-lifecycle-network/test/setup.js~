@@ -38,11 +38,11 @@ describe('Vehicle Lifecycle Network', function() {
     before(function() {
         BrowserFS.initialize(new BrowserFS.FileSystem.InMemory());
         var adminConnection = new AdminConnection({ fs: bfs_fs });
-        return adminConnection.createProfile('hlfv1', {
+        return adminConnection.createProfile('defaultProfile', {
             type: 'embedded'
         })
         .then(function() {
-            return adminConnection.connect('hlfv1', 'admin', 'adminpw');
+            return adminConnection.connect('defaultProfile', 'admin', 'Xurw3yU9zI0l');
         })
         .then(function() {
             return BusinessNetworkDefinition.fromDirectory(path.resolve(__dirname, '..'));
@@ -52,7 +52,7 @@ describe('Vehicle Lifecycle Network', function() {
         })
         .then(function() {
             businessNetworkConnection = new BusinessNetworkConnection({ fs: bfs_fs });
-            return businessNetworkConnection.connect('hlfv1', 'vehicle-lifecycle-network', 'admin', 'adminpw');
+            return businessNetworkConnection.connect('defaultProfile', 'vehicle-lifecycle-network', 'admin', 'Xurw3yU9zI0l');
         })
         .then(function() {
             // this will create some sample assets and participants
