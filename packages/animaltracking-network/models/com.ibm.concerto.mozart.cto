@@ -37,6 +37,7 @@ asset Facility identified by cph {
   o String facilityId
   o String name
   --> Shipment[] incomingShipments optional
+  --> PIC person_in_charge
 }
 
 /**
